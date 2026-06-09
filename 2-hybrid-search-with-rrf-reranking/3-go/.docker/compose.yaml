@@ -1,0 +1,35 @@
+services:
+  bm25-service:
+    build:
+      context: ../../mock-upstream
+      dockerfile: Dockerfile
+    environment:
+      MODE: bm25
+      PORT: "4001"
+    expose:
+      - "4001"
+
+  vector-service:
+    build:
+      context: ../../mock-upstream
+      dockerfile: Dockerfile
+    environment:
+      MODE: vector
+      PORT: "4002"
+    expose:
+      - "4002"
+
+  hybrid-search-service:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      PORT: "3000"
+      BM25_URL: http://bm25-service:4001/search
+      VECTOR_URL: http://vector-service:4002/search
+      RRF_K: "60"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - bm25-service
+      - vector-service

@@ -1,0 +1,11 @@
+package com.starci.hybrid;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class HybridSearchApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(HybridSearchApplication.class, args);
+    }
+}

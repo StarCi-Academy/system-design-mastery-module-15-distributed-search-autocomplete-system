@@ -1,0 +1,9 @@
+server:
+  port: ${PORT:3020}
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/vectorsearch}
+    username: ${PG_USER:search}
+    password: ${PG_PASSWORD:search}

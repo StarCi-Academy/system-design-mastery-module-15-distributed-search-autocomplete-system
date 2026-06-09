@@ -1,0 +1,9 @@
+server:
+  port: ${PORT:3000}
+
+upstream:
+  bm25Url: ${BM25_URL:http://bm25-service:4001/search}
+  vectorUrl: ${VECTOR_URL:http://vector-service:4002/search}
+
+rrf:
+  k: ${RRF_K:60}
